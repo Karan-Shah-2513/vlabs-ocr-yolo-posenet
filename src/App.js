@@ -9,12 +9,9 @@ function App() {
     <>
       <div className="App">
         <Routes>
-          <Route path="/vlabs-ocr-yolo-posenet/ocr" element={<OCRsim />} />
-          <Route path="/vlabs-ocr-yolo-posenet/yolo" element={<YoloSim />} />
-          <Route
-            path="/vlabs-ocr-yolo-posenet/posenet"
-            element={<PosenetSim />}
-          />
+          <Route path="/ocr" element={<OCRsim />} />
+          <Route path="/yolo" element={<YoloSim />} />
+          <Route path="/posenet" element={<PosenetSim />} />
         </Routes>
       </div>
     </>
