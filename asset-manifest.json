@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vlabs-ocr-yolo-posenet/static/css/main.03452247.css",
-    "main.js": "/vlabs-ocr-yolo-posenet/static/js/main.493d7df4.js",
+    "main.js": "/vlabs-ocr-yolo-posenet/static/js/main.3be31041.js",
     "static/js/787.b7fa6cce.chunk.js": "/vlabs-ocr-yolo-posenet/static/js/787.b7fa6cce.chunk.js",
     "index.html": "/vlabs-ocr-yolo-posenet/index.html",
     "main.03452247.css.map": "/vlabs-ocr-yolo-posenet/static/css/main.03452247.css.map",
-    "main.493d7df4.js.map": "/vlabs-ocr-yolo-posenet/static/js/main.493d7df4.js.map",
+    "main.3be31041.js.map": "/vlabs-ocr-yolo-posenet/static/js/main.3be31041.js.map",
     "787.b7fa6cce.chunk.js.map": "/vlabs-ocr-yolo-posenet/static/js/787.b7fa6cce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03452247.css",
-    "static/js/main.493d7df4.js"
+    "static/js/main.3be31041.js"
   ]
 }
