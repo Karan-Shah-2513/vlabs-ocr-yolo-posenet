@@ -4,7 +4,7 @@ import { FilePond, registerPlugin } from "react-filepond";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
 import "filepond/dist/filepond.min.css";
-import "./ocr.css";
+import "./ocr.scss";
 // import { withRouter } from "react-router-dom";
 import { Button } from "reactstrap";
 
@@ -94,119 +94,124 @@ class OCRsim extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        <Button
-          size="sm"
-          onClick={() => {
-            this.props.history.push("/aboutcourse-ocr");
-          }}
-          style={{
-            width: 150,
-            margin: "auto",
-            fontWeight: "bold",
-            border: "2px solid",
-          }}
-        >
-          Back To About Course
-        </Button>
-        <div className="title container">
-          <p className="titlename">Optical Character Recognition</p>
-        </div>
-        <div className="body container">
-          <div style={{ marginTop: "10%" }} className="row">
-            <div className="col-md-4"></div>
-            <div className="col-md-4">
-              <FilePond
-                className="fileupload"
-                ref={(ref) => (this.pond = ref)}
-                acceptedFileTypes={["image/png", "image/jpeg", "image/jpg"]}
-                server={{
-                  process: (
-                    fieldName,
-                    file,
-                    metadata,
-                    load,
-                    error,
-                    progress,
-                    abort
-                  ) => {
-                    if (!file.type.includes("image")) {
-                      error(new Error("Invalid file type"));
-                      this.setState({
-                        message: "Please Upload jpg file",
-                        isProcessing: false,
-                      });
-                    } else {
-                      load(file.name);
-                    }
-                  },
-                }}
-                onaddfile={(err, file) => {
-                  this.doOCR(file);
-                }}
-                allowMultiple={false}
-                onremovefile={(err, fiile) => {
-                  this.setState({
-                    ocrText: "",
-                    message: "",
-                    isProcessing: false,
-                  });
-                }}
-                labelIdle={
-                  'Drag and Drop image (jpg format) or <span class="filepond--label-action"> Browse </span>'
-                }
-              />
-            </div>
-            <div className="col-md-4">
-              <label className="dropdownlist">
-                Select the language:
-                <select
-                  className="selectpicker"
-                  value={this.state.lang}
-                  data-live-search="true"
-                  onChange={this.handleChange}
-                >
-                  <option value="eng">English</option>
-                  <option value="hin">Hindi</option>
-                  <option value="fra">French</option>
-                  <option value="deu">German</option>
-                  <option value="spa">Spanish</option>
-                </select>
-              </label>
-            </div>
-
-            <p className="errormessage">
-              <b>{this.state.message}</b>
-            </p>
-            <p className="languagetext">
-              The code for the selected language is{" "}
-              <strong>{this.state.lang}</strong>
-            </p>
+      <div className="OCR">
+        <div className="App">
+          <Button
+            size="sm"
+            onClick={() => {
+              this.props.history.push("/aboutcourse-ocr");
+            }}
+            style={{
+              width: 150,
+              margin: "auto",
+              fontWeight: "bold",
+              border: "2px solid",
+            }}
+          >
+            Back To About Course
+          </Button>
+          <div className="title container">
+            <p className="titlename">Optical Character Recognition</p>
           </div>
-          <div className="card">
-            <h5 className="card-header">
-              <div style={{ margin: "1%", textAlign: "left" }} className="row">
-                <div className="col-md-12">
-                  <span className="status-text">
-                    {this.state.isProcessing
-                      ? `Processing Image ( ${this.state.pctg} % )`
-                      : "Parsed Text"}{" "}
-                  </span>
-                </div>
+          <div className="body container">
+            <div style={{ marginTop: "10%" }} className="row">
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <FilePond
+                  className="fileupload"
+                  ref={(ref) => (this.pond = ref)}
+                  acceptedFileTypes={["image/png", "image/jpeg", "image/jpg"]}
+                  server={{
+                    process: (
+                      fieldName,
+                      file,
+                      metadata,
+                      load,
+                      error,
+                      progress,
+                      abort
+                    ) => {
+                      if (!file.type.includes("image")) {
+                        error(new Error("Invalid file type"));
+                        this.setState({
+                          message: "Please Upload jpg file",
+                          isProcessing: false,
+                        });
+                      } else {
+                        load(file.name);
+                      }
+                    },
+                  }}
+                  onaddfile={(err, file) => {
+                    this.doOCR(file);
+                  }}
+                  allowMultiple={false}
+                  onremovefile={(err, fiile) => {
+                    this.setState({
+                      ocrText: "",
+                      message: "",
+                      isProcessing: false,
+                    });
+                  }}
+                  labelIdle={
+                    'Drag and Drop image (jpg format) or <span class="filepond--label-action"> Browse </span>'
+                  }
+                />
               </div>
-            </h5>
-            <div className="card-body">
-              <p className="card-text">
-                {this.state.isProcessing
-                  ? "..........."
-                  : this.state.ocrText.length === 0
-                  ? "No Valid Text Found / Upload Image to Parse Text From Image"
-                  : this.state.ocrText}
+              <div className="col-md-4">
+                <label className="dropdownlist">
+                  Select the language:
+                  <select
+                    className="selectpicker"
+                    value={this.state.lang}
+                    data-live-search="true"
+                    onChange={this.handleChange}
+                  >
+                    <option value="eng">English</option>
+                    <option value="hin">Hindi</option>
+                    <option value="fra">French</option>
+                    <option value="deu">German</option>
+                    <option value="spa">Spanish</option>
+                  </select>
+                </label>
+              </div>
+
+              <p className="errormessage">
+                <b>{this.state.message}</b>
+              </p>
+              <p className="languagetext">
+                The code for the selected language is{" "}
+                <strong>{this.state.lang}</strong>
               </p>
             </div>
-          </div>
+            <div className="card">
+              <h5 className="card-header">
+                <div
+                  style={{ margin: "1%", textAlign: "left" }}
+                  className="row"
+                >
+                  <div className="col-md-12">
+                    <span className="status-text">
+                      {this.state.isProcessing
+                        ? `Processing Image ( ${this.state.pctg} % )`
+                        : "Parsed Text"}{" "}
+                    </span>
+                  </div>
+                </div>
+              </h5>
+              <div className="card-body">
+                <p className="card-text">
+                  {this.state.isProcessing
+                    ? "..........."
+                    : this.state.ocrText.length === 0
+                    ? "No Valid Text Found / Upload Image to Parse Text From Image"
+                    : this.state.ocrText}
+                </p>
+              </div>
+            </div>
 
-          <div className="ocr-text"></div>
+            <div className="ocr-text"></div>
+          </div>
         </div>
       </div>
     );
