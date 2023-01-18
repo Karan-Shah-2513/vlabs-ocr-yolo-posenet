@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/vlabs-ocr-yolo-posenet/static/css/main.03452247.css",
-    "main.js": "/vlabs-ocr-yolo-posenet/static/js/main.e1687c52.js",
+    "main.css": "/vlabs-ocr-yolo-posenet/static/css/main.82e98a7b.css",
+    "main.js": "/vlabs-ocr-yolo-posenet/static/js/main.db6dd0a9.js",
     "static/js/787.b7fa6cce.chunk.js": "/vlabs-ocr-yolo-posenet/static/js/787.b7fa6cce.chunk.js",
     "index.html": "/vlabs-ocr-yolo-posenet/index.html",
-    "main.03452247.css.map": "/vlabs-ocr-yolo-posenet/static/css/main.03452247.css.map",
-    "main.e1687c52.js.map": "/vlabs-ocr-yolo-posenet/static/js/main.e1687c52.js.map",
+    "main.82e98a7b.css.map": "/vlabs-ocr-yolo-posenet/static/css/main.82e98a7b.css.map",
+    "main.db6dd0a9.js.map": "/vlabs-ocr-yolo-posenet/static/js/main.db6dd0a9.js.map",
     "787.b7fa6cce.chunk.js.map": "/vlabs-ocr-yolo-posenet/static/js/787.b7fa6cce.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03452247.css",
-    "static/js/main.e1687c52.js"
+    "static/css/main.82e98a7b.css",
+    "static/js/main.db6dd0a9.js"
   ]
 }
